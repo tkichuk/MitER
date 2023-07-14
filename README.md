@@ -1,5 +1,5 @@
 "# MitER" 
-Supplemental Note One:
+"Supplemental Note One:
 The following is a step-by-step guide on how to run the MitER workflow on .obj or .VTK files.
 Requirements
 •	ParaView (https://www.paraview.org/)
@@ -34,5 +34,4 @@ Text -> Open -> Navigate to MitEREngine.py in the folder on your desktop and sel
 Analyzing Raw Data in R
 •	Open R script from your MitER desktop directory and set the path your data folder
 •	Run the script and the resulting collated .csv files will output into your data folder
-•	From here you can plot the data as you see fit
-![image](https://github.com/tkichuk/MitER/assets/116237022/62bce86d-e72a-4779-b347-5e06e55cd0f4)
+•	From here you can plot the data as you see fit"
