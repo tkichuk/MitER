@@ -739,7 +739,7 @@ def update_out_list (out_list, bpycontext):
         # Add a Voxel Remesh modifier to the object
         remesh_modifier = ob.modifiers.new(name='Remesh', type='REMESH')
         remesh_modifier.mode = 'VOXEL'
-        remesh_modifier.voxel_size = 0.025
+        remesh_modifier.voxel_size = 0.03
         
         # Apply the Voxel Remesh modifier
         bpy.ops.object.modifier_apply(modifier=remesh_modifier.name)
@@ -1319,7 +1319,7 @@ class OT_TestOpenFilebrowser (Operator, ImportHelper):
                     # set the origin of the new object to the center of the original object
                     new_obj.location = obj.location
                     bpy.ops.object.origin_set(type='ORIGIN_GEOMETRY')
-                    new_obj.scale *= 1.3
+                    new_obj.scale *= 1.2
                     new_obj.name = "UpscaledCell"
                     
                     # Set the number of fractions (11 will increment by 10ths)
@@ -1689,7 +1689,7 @@ class OT_TestOpenFilebrowser (Operator, ImportHelper):
                     # set the origin of the new object to the center of the original object
                     new_obj.location = obj.location
                     bpy.ops.object.origin_set(type='ORIGIN_GEOMETRY')
-                    new_obj.scale *= 1.3
+                    new_obj.scale *= 1.2
                     new_obj.name = "UpscaledCell"
                     
                     # Set the number of fractions (11 will increment by 10ths)
@@ -2052,7 +2052,7 @@ class OT_TestOpenFilebrowser (Operator, ImportHelper):
                     # set the origin of the new object to the center of the original object
                     new_obj.location = obj.location
                     bpy.ops.object.origin_set(type='ORIGIN_GEOMETRY')
-                    new_obj.scale *= 1.3
+                    new_obj.scale *= 1.2
                     new_obj.name = "UpscaledCell"
                     
                     # Set the number of fractions (11 will increment by 10ths)
