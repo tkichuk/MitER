@@ -43,8 +43,8 @@ Text -> Open -> Navigate to MitEREngine.py in the folder on your desktop and sel
 •	Once the script is open, click run and select directory (folder) containing the .x3d files you want to analyze.  
 •	Your output will auto-populate in .csv files within a Data folder within the MitER directory on desktop.   
 
-Analyzing Raw Data in R
-•	Open R script from your MitER desktop directory and set the path your data folder
-•	Run the script and the resulting collated .csv files will output into your data folder
-•	From here you can plot the data as you see fit
+Analyzing Raw Data in R  
+•	Open R script from your MitER desktop directory and set the path your data folder  
+•	Run the script and the resulting collated .csv files will output into your data folder  
+•	From here you can plot the data as you see fit  
 
