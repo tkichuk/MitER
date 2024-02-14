@@ -168,7 +168,8 @@ for (i in CellStatsFiles) {
     DFinal$id <- 1
     DFinal <- reshape(DFinal, idvar = "id", timevar = "Organelle", direction = "wide")[-1]
     
-    File <- gsub(pattern = "(\\d)[^0-9]+$", replacement = "\\1", x = as.character(i))  # Ensure i is converted to character
+    #File <- gsub(pattern = "(\\d)[^0-9]+$", replacement = "\\1", x = as.character(i))  # Ensure i is converted to character
+    File <- gsub(pattern = "-CellStats.csv", replacement = "", x = as.character(i))
     DFinal <- cbind("File" = File, DFinal)  # Use "File" as column name
     CellStats <- rbind(CellStats, DFinal)
   }
@@ -248,9 +249,12 @@ for(i in MitochondrialDistributionFiles) {
     # Normalize mitochondrial surface area in each subcube section by total mitochondrial surface area in cell
     DFinal$FractionSectionMitoSA <- round((DFinal$SectionMitoSA/TotalMitoSA ), digits=3)
     
-    File <- gsub(pattern = "(\\d)[^0-9]+$", replacement = "\\1", x = as.character(i)) 
+    #File <- gsub(pattern = "(\\d)[^0-9]+$", replacement = "\\1", x = as.character(i)) 
+    File <- gsub(pattern = "-MitochondrialDistribution.csv", replacement = "", x = as.character(i))
     
     DFinal <- cbind (File, DFinal)
+    
+    #error
     
     DFinal <- merge (DFinal, CellStats, by = "File")
     
@@ -315,7 +319,9 @@ for(i in MitochondrialDistributionFiles) {
     str <-lapply(X =str, FUN = function(t) gsub(pattern = "e.", replacement = "e-", x = t))
     OverlapFileFinal [1] <-as.numeric (unlist(str))
     
-    File <- gsub(pattern = "(\\d)[^0-9]+$", replacement = "\\1", x = as.character(i)) 
+    #File <- gsub(pattern = "(\\d)[^0-9]+$", replacement = "\\1", x = as.character(i)) 
+    File <- gsub(pattern = "-MitochondrialDistribution.csv", replacement = "", x = as.character(i)) 
+    
     OverlapFileFinal <- cbind (File, OverlapFileFinal)
     
     OverlapDeetsDF <-data.frame(matrix(ncol = 3, nrow = 0))
@@ -419,11 +425,15 @@ MitoStatsFiles<-grep("MitoComponents.csv",names(.GlobalEnv),value=TRUE)
 FullMitoStats <- data.frame(matrix(ncol = 5, nrow = 0))
 
 #i = MitoStatsFiles [1]
+#i
+MitoStatsFiles
 # Iterate through each Mitochondria File
 for(i in MitoStatsFiles){
   #Get file and format strings
   #Getting mitochondrial data from the file#
-  File<- gsub(pattern = "(\\d)[^0-9]+$", replacement = "\\1", x = as.character(i)) 
+  File<- gsub(pattern = "(\\d)[^0-9]+$", replacement = "\\1", x = as.character(i))
+  File
+  File<- gsub(pattern = "-MitoComponents.csv", replacement = "", x = as.character(i)) 
   DF <- get(i)
   DF <- DF [1]
   RowOne <- colnames(DF [1])
@@ -487,7 +497,7 @@ SummaryFile$NormalizedContactCount <-as.numeric(SummaryFile$FilteredContactCount
 
 # Mitochondrial volume normalized by cell volume
 SummaryFile$NormalizedMitoVol <-(as.numeric(SummaryFile$Volume.Mitochondria)/as.numeric(SummaryFile$ScaledCellVolume))
-SummaryFile$NormalizedMitoVol <-(as.numeric(SummaryFile$SubcellularStructure)/as.numeric(SummaryFile$ScaledCellVolume))
+#SummaryFile$NormalizedMitoVol <-(as.numeric(SummaryFile$SubcellularStructure)/as.numeric(SummaryFile$ScaledCellVolume))
 
 
 SummaryFile$MeanCellRadius <-((as.numeric(SummaryFile$BBHeight.Cell)+as.numeric(SummaryFile$BBLength.Cell)+ as.numeric(SummaryFile$BBWidth.Cell))/3)/2
